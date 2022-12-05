@@ -5,7 +5,7 @@ import css from './Cast.module.css';
 
 const IMAGE_URL = 'https://image.tmdb.org/t/p/w500/';
 
-export const Cast = () => {
+const Cast = () => {
   const [cast, setCast] = useState([]);
   const params = useParams();
 
@@ -16,12 +16,10 @@ export const Cast = () => {
   return (
     <div>
       {
-        <ul>
+        <ul className={css.actor_list}>
           {cast.map(actor => (
             <li key={actor.id} className={css.actor_item}>
               <img
-                // src={`${IMAGE_URL + actor.profile_path}`}
-                // src={require('../../Images/person_men.jpg')}
                 src={`${
                   actor.profile_path
                     ? IMAGE_URL + actor.profile_path
@@ -34,7 +32,9 @@ export const Cast = () => {
               />
               <div className={css.description_wraper}>
                 <h3>{actor.name}</h3>
-                <p>Character: {actor.character}</p>
+                {actor.character.length > 0 && (
+                  <p>Character: {actor.character}</p>
+                )}
               </div>
             </li>
           ))}
@@ -43,3 +43,5 @@ export const Cast = () => {
     </div>
   );
 };
+
+export default Cast;

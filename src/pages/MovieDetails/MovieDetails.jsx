@@ -7,7 +7,7 @@ import css from './MovieDetails.module.css';
 
 const IMAGE_URL = 'https://image.tmdb.org/t/p/w500/';
 
-export const MovieDetails = () => {
+const MovieDetails = () => {
   const params = useParams();
   const location = useLocation();
   const navigate = useNavigate();
@@ -60,3 +60,5 @@ export const MovieDetails = () => {
     </>
   );
 };
+
+export default MovieDetails;

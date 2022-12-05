@@ -1,6 +1,12 @@
+.actor_list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .actor_item {
   display: flex;
   margin-bottom: 15px;
+  width: 300px;
 }
 .description_wraper {
   margin-left: 20px;
