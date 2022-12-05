@@ -2,6 +2,7 @@ import { MovieList } from 'components/MovieList/MovieList';
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { getMoviesByQuery } from 'services/api';
+import css from './Movies.module.css';
 
 export const Movies = () => {
   const [query, setQuery] = useState('');
@@ -26,8 +27,16 @@ export const Movies = () => {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <input type="text" name="movie" onChange={handleChange} value={query} />
-        <button type="submit">Search</button>
+        <input
+          className={css.input_search}
+          type="text"
+          name="movie"
+          onChange={handleChange}
+          value={query}
+        />
+        <button className={css.btn_search} type="submit">
+          Search
+        </button>
       </form>
       <MovieList movies={movies} />
     </div>

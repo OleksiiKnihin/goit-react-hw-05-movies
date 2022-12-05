@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { getMovieById } from 'services/api';
 import { useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import css from './MovieDetails.module.css';
 
 const IMAGE_URL = 'https://image.tmdb.org/t/p/w500/';
 
@@ -25,26 +26,35 @@ export const MovieDetails = () => {
   if (!movie) return;
   return (
     <>
-      <button type="button" onClick={handleGoBack}>
-        Go back
+      <button className={css.btn_back} type="button" onClick={handleGoBack}>
+        ← Go back
       </button>
-      <div>
-        <h2>{movie.title}</h2>
-        <img src={`${IMAGE_URL + movie.poster_path}`} alt={`${movie.title}`} />
-        <p>User score: {movie.vote_average * 10}%</p>
-        <p>Overview: {movie.overview}</p>
-        <p>
-          Genres:{' '}
-          {movie.genres.map(ganre => (
-            <span key={ganre.id}>{ganre.name}, </span>
-          ))}
-        </p>
+      <div className={css.movieDetails_wrapper}>
+        <img
+          src={`${IMAGE_URL + movie.poster_path}`}
+          width="250px"
+          alt={`${movie.title}`}
+        />
+        <div className={css.movieDetails_descroption}>
+          <h2 className={css.movie_title}>{movie.title}</h2>
+          <h3>User score:</h3>
+          <p>{Math.round(movie.vote_average * 10)}%</p>
+          <h3>Overview:</h3>
+          <p>{movie.overview}</p>
+          <h3>Genres:</h3>
+          <p>
+            {movie.genres.map(ganre => (
+              <span key={ganre.id}>{ganre.name + ' '}</span>
+            ))}
+          </p>
+        </div>
       </div>
-      <Link to="cast" state={location.state}>
+      <h3>Additional information</h3>
+      <Link to="cast" state={location.state} className={css.cast}>
         Cast
       </Link>
-      <Link to="reviews" state={location.state}>
-        Reviws
+      <Link to="reviews" state={location.state} className={css.reviews}>
+        Reviews
       </Link>
       <Outlet />
     </>

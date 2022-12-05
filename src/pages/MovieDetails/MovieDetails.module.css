@@ -1,0 +1,39 @@
+.btn_back {
+  display: block;
+  margin-left: 15px;
+  margin-bottom: 15px;
+  padding: 10px 30px;
+  border-radius: 20px;
+  background-color: rgb(204, 204, 248);
+
+  font-size: 14spx;
+
+  cursor: pointer;
+  border: none;
+}
+
+.btn_back:hover {
+  background-color: blue;
+  color: white;
+}
+
+.movie_title {
+  font-size: 36px;
+}
+
+.movieDetails_wrapper {
+  display: flex;
+  margin-bottom: 30px;
+}
+
+.movieDetails_descroption {
+  margin-left: 20px;
+}
+
+.cast,
+.reviews {
+  margin-left: 10px;
+  margin-bottom: 10px;
+  font-size: 20px;
+  display: block;
+}

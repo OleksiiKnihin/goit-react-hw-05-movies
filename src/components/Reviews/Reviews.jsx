@@ -12,7 +12,7 @@ export const Reviews = () => {
 
   return (
     <div>
-      {
+      {reviews.length > 0 ? (
         <ul>
           {reviews.map(review => (
             <li key={review.id}>
@@ -21,7 +21,9 @@ export const Reviews = () => {
             </li>
           ))}
         </ul>
-      }
+      ) : (
+        <p>We don't have any reviews for that movie</p>
+      )}
     </div>
   );
 };

@@ -1,0 +1,7 @@
+.actor_item {
+  display: flex;
+  margin-bottom: 15px;
+}
+.description_wraper {
+  margin-left: 20px;
+}
